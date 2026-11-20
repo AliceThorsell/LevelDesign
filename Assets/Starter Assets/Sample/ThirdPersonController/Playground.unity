@@ -18347,6 +18347,60 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1 &117032269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 117032270}
+  - component: {fileID: 117032271}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &117032270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117032269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.078, y: -1.109, z: 20.534}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1316039156}
+  m_Father: {fileID: 1007066259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &117032271
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117032269}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7965512, y: 0.11778116, z: 0.41683292}
+  m_Center: {x: 0.06791377, y: 0.018660545, z: -0.011482716}
 --- !u!1 &120236963
 GameObject:
   m_ObjectHideFlags: 0
@@ -344240,7 +344294,7 @@ Transform:
   - {fileID: 54215009}
   - {fileID: 1368334368}
   - {fileID: 403393264}
-  - {fileID: 1316039156}
+  - {fileID: 117032270}
   - {fileID: 471969916}
   - {fileID: 261812924}
   - {fileID: 1307828143}
@@ -595498,6 +595552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeySystem.KeyInventory
   hasOfficeKey: 0
   hasPhoneKey: 0
+  hasTool: 0
 --- !u!1 &1310750857
 GameObject:
   m_ObjectHideFlags: 0
@@ -600407,11 +600462,11 @@ Transform:
   m_GameObject: {fileID: 1316039150}
   serializedVersion: 2
   m_LocalRotation: {x: 6.795418e-12, y: 9.123883e-22, z: 1.3426522e-10, w: 1}
-  m_LocalPosition: {x: 6.590906, y: -1.0921073, z: 20.470222}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1007066259}
+  m_Father: {fileID: 117032270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316113832
 GameObject:
