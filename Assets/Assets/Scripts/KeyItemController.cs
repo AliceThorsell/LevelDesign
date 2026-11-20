@@ -10,6 +10,7 @@ namespace KeySystem
         [SerializeField] private bool phoneDoor = false;
         [SerializeField] private bool phoneKey = false;
 
+
         [SerializeField] private KeyInventory _keyInventory = null;
 
         private KeyDoorController doorObject;
@@ -29,25 +30,43 @@ namespace KeySystem
 
         public void ObjectInteraction() 
         {
-            if (officeDoor) 
+            if (officeDoor && _keyInventory.hasOfficeKey)
             {
+                doorObject.openAnimationName = "OfficeDoorOpen";
+                doorObject.closeAnimationName = "OfficeDoorClose";
+
                 doorObject.PlayAnimation();
+                _keyInventory.hasOfficeKey = false;
+            }
+            else if (officeDoor && !_keyInventory.hasOfficeKey)
+            {
+                doorObject.DoorLocked();
             }
 
-            else if (officeKey) 
+            if (phoneDoor && _keyInventory.hasPhoneKey)
+            {
+                doorObject.openAnimationName = "PhoneDoorOpen";
+                doorObject.closeAnimationName = "PhoneDoorClose";
+
+                doorObject.PlayAnimation();
+                _keyInventory.hasPhoneKey = false;
+            }
+            else if (phoneDoor && !_keyInventory.hasPhoneKey)
+            {
+                doorObject.DoorLocked();
+            }
+
+
+
+
+            if (officeKey)
             {
                 _keyInventory.hasOfficeKey = true;
                 gameObject.SetActive(false);
             }
-
-            if (phoneDoor)
+            if (phoneKey)
             {
-                doorObject.PlayAnimation();
-            }
-
-            else if (phoneKey)
-            {
-                _keyInventory.hasOfficeKey = true;
+                _keyInventory.hasPhoneKey = true;
                 gameObject.SetActive(false);
             }
         }

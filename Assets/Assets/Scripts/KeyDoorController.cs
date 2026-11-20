@@ -10,8 +10,8 @@ namespace KeySystem
         private bool doorOpen = false;
 
         [Header("Animation Names")]
-        [SerializeField] private string openAnimationName = "DoorOpen";
-        [SerializeField] private string closeAnimationName = "DoorClose";
+        [SerializeField] public string openAnimationName;
+        [SerializeField] public string closeAnimationName;
 
         [SerializeField] private int timeToShowUI = 1;
         [SerializeField] private GameObject showDoorLockedUI = null;
@@ -20,6 +20,8 @@ namespace KeySystem
 
         [SerializeField] private int waitTimer = 1;
         [SerializeField] private bool pauseInteraction = false;
+
+        [SerializeField] private KeyItemController _keyItemController = null;
 
         private void Awake()
         {
@@ -36,36 +38,20 @@ namespace KeySystem
 
         public void PlayAnimation() 
         {
-            if (_keyInventory.hasOfficeKey) 
-            {
-                OpenDoor();
-            }
-            
-            if (_keyInventory.hasPhoneKey)
-            {
-                OpenDoor();
-            }
-            
-            else 
-            {
-                StartCoroutine(ShowDoorLocked());
-            }
-
+            OpenDoor();
         }
 
-        void OpenDoor() 
+        public void DoorLocked()
+        {
+            StartCoroutine(ShowDoorLocked());
+        }
+
+        void OpenDoor()
         {
             if(!doorOpen && !pauseInteraction)
             {
                 doorAnim.Play(openAnimationName, 0, 0.0f);
                 doorOpen = true;
-                StartCoroutine(PauseDoorInteraction());
-            }
-
-            else if (!doorOpen && !pauseInteraction)
-            {
-                doorAnim.Play(closeAnimationName, 0, 0.0f);
-                doorOpen = false;
                 StartCoroutine(PauseDoorInteraction());
             }
         }
@@ -74,6 +60,7 @@ namespace KeySystem
 
         IEnumerator ShowDoorLocked() 
         {
+            Debug.Log("here");
             showDoorLockedUI.SetActive(true);
             yield return new WaitForSeconds(timeToShowUI);
             showDoorLockedUI.SetActive(false);
