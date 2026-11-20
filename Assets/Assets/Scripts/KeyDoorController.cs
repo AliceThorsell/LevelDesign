@@ -33,16 +33,24 @@ namespace KeySystem
             pauseInteraction = false;
         }
 
+
         public void PlayAnimation() 
         {
             if (_keyInventory.hasOfficeKey) 
             {
                 OpenDoor();
             }
+            
+            if (_keyInventory.hasPhoneKey)
+            {
+                OpenDoor();
+            }
+            
             else 
             {
                 StartCoroutine(ShowDoorLocked());
             }
+
         }
 
         void OpenDoor() 

@@ -5,6 +5,7 @@ namespace KeySystem
     public class KeyInventory : MonoBehaviour
     {
         public bool hasOfficeKey = false;
+        public bool hasPhoneKey = false;
     }
 
  }
