@@ -10,6 +10,9 @@ namespace KeySystem
         [SerializeField] private bool phoneDoor = false;
         [SerializeField] private bool phoneKey = false;
 
+        [SerializeField] private bool toolDoor = false;
+        [SerializeField] private bool toolKey = false;
+
 
         [SerializeField] private KeyInventory _keyInventory = null;
 
@@ -23,6 +26,11 @@ namespace KeySystem
             }
 
             if (phoneDoor)
+            {
+                doorObject = GetComponent<KeyDoorController>();
+            }
+
+            if (toolDoor) 
             {
                 doorObject = GetComponent<KeyDoorController>();
             }
@@ -56,6 +64,18 @@ namespace KeySystem
                 doorObject.DoorLocked();
             }
 
+            if (toolDoor && _keyInventory.hasToolKey)
+            {
+                doorObject.openAnimationName = "ToolDoorOpen";
+
+                doorObject.PlayAnimation();
+                _keyInventory.hasOfficeKey = false;
+            }
+            else if (officeDoor && !_keyInventory.hasOfficeKey)
+            {
+                doorObject.DoorLocked();
+            }
+
 
 
 
@@ -65,6 +85,11 @@ namespace KeySystem
                 gameObject.SetActive(false);
             }
             if (phoneKey)
+            {
+                _keyInventory.hasPhoneKey = true;
+                gameObject.SetActive(false);
+            }
+            if (toolKey)
             {
                 _keyInventory.hasPhoneKey = true;
                 gameObject.SetActive(false);

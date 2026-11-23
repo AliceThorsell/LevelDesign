@@ -6,7 +6,7 @@ namespace KeySystem
     {
         public bool hasOfficeKey = false;
         public bool hasPhoneKey = false;
-        public bool hasTool = false;
+        public bool hasToolKey = false;
     }
 
  }
