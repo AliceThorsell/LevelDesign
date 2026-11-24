@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.Audio;
 
 public class DoorController : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class DoorController : MonoBehaviour
     private Transform targetTransform;
     private AudioSource doorAudioSource;
     private bool isRotating = false;
+
 
     private void Awake()
     {

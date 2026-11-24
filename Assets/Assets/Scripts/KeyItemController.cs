@@ -67,11 +67,12 @@ namespace KeySystem
             if (toolDoor && _keyInventory.hasToolKey)
             {
                 doorObject.openAnimationName = "ToolDoorOpen";
-
                 doorObject.PlayAnimation();
+                this.GetComponent<BoxCollider>().enabled = false;
+
                 _keyInventory.hasOfficeKey = false;
             }
-            else if (officeDoor && !_keyInventory.hasOfficeKey)
+            else if (toolDoor && !_keyInventory.hasToolKey)
             {
                 doorObject.DoorLocked();
             }
@@ -91,7 +92,7 @@ namespace KeySystem
             }
             if (toolKey)
             {
-                _keyInventory.hasPhoneKey = true;
+                _keyInventory.hasToolKey = true;
                 gameObject.SetActive(false);
             }
         }
