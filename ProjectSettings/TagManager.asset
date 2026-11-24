@@ -8,6 +8,7 @@ TagManager:
   - InteractiveObject
   - UnlockedDoor
   - Destroy
+  - LevelLoader
   layers:
   - Default
   - TransparentFX
