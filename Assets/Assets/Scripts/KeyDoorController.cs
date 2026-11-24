@@ -23,9 +23,15 @@ namespace KeySystem
 
         [SerializeField] private KeyItemController _keyItemController = null;
 
+        [Header("Audio")]
+        [SerializeField] private AudioClip soundClip = null;
+
+        private AudioSource doorAudioSource;
+
         private void Awake()
         {
             doorAnim = gameObject.GetComponent<Animator>();
+            doorAudioSource = GetComponent<AudioSource>();
         }
 
         private IEnumerator PauseDoorInteraction() 
@@ -39,6 +45,10 @@ namespace KeySystem
         public void PlayAnimation() 
         {
             OpenDoor();
+            if (soundClip != null)
+            {
+                doorAudioSource.PlayOneShot(soundClip);
+            }
         }
 
         public void DoorLocked()
